@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Vault</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+
+            <header class="app-header">
+                <div class="brand">
+                    <span class="brand-icon"><i class="fas fa-shield-halved"></i></span>
+                    <div>
+                        <h1>Password Vault</h1>
+                        <p class="tagline">Generate strong, unpredictable passwords</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- password terminal -->
+            <div class="terminal">
+                <div class="terminal-bar">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                    <span class="terminal-title">password.txt</span>
+                </div>
+                <div class="terminal-body">
+                    <span class="prompt">$</span>
+                    <input type="text" readonly id="password" aria-label="Generated password">
+                    <span class="cursor" aria-hidden="true"></span>
+                    <button id="copy-btn" title="Copy to clipboard" aria-label="Copy password">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="strength-container">
+                <p>
+                    <span>Strength: <span id="strength-label">Medium</span></span>
+                    <span id="entropy-label" class="entropy">0 bits</span>
+                </p>
+                <div class="strength-meter">
+                    <div class="strength-bar"></div>
+                </div>
+            </div>
+
+            <!-- options -->
+            <div class="options">
+                <div class="option">
+                    <label for="length">Password Length</label>
+                    <div class="range-container">
+                        <input type="range" id="length" min="6" max="32" value="12">
+                        <span id="length-value">12</span>
+                    </div>
+                </div>
+
+                <div class="option">
+                    <label for="uppercase">Include Uppercase <span class="hint">A-Z</span></label>
+                    <input type="checkbox" id="uppercase">
+                </div>
+
+                <div class="option">
+                    <label for="lowercase">Include Lowercase <span class="hint">a-z</span></label>
+                    <input type="checkbox" id="lowercase">
+                </div>
+
+                <div class="option">
+                    <label for="numbers">Include Numbers <span class="hint">0-9</span></label>
+                    <input type="checkbox" id="numbers">
+                </div>
+
+                <div class="option">
+                    <label for="symbols">Include Symbols <span class="hint">!@#$</span></label>
+                    <input type="checkbox" id="symbols">
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="option">
+                    <label for="exclude-ambiguous">Exclude Ambiguous <span class="hint">I l 1 O 0</span></label>
+                    <input type="checkbox" id="exclude-ambiguous">
+                </div>
+
+                <div class="option">
+                    <label for="no-duplicates">No Repeated Characters</label>
+                    <input type="checkbox" id="no-duplicates">
+                </div>
+            </div>
+
+            <button id="generate-btn">
+                <i class="fas fa-key"></i>
+                Generate Password
+            </button>
+
+            <!-- history -->
+            <div class="history">
+                <div class="history-header">
+                    <h2>Recent</h2>
+                    <button id="clear-history-btn" type="button">Clear</button>
+                </div>
+                <ul id="history-list" class="history-list"></ul>
+                <p id="history-empty" class="history-empty">Generated passwords will appear here.</p>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

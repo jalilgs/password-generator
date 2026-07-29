@@ -1,0 +1,28 @@
+Version 1.1 ⭐ (easy)
+Auto regenerate on every option change
+Increase max length to 64
+Better copy notification
+Show password button
+
+Version 1.2 ⭐⭐
+Guarantee one character from every selected type
+Shuffle password afterwards
+
+Version 1.3 ⭐⭐⭐
+Better strength algorithm
+Detect repeated/sequential patterns
+Entropy calculation
+Crack time estimation
+
+Version 1.4 ⭐⭐⭐
+Password history
+Save preferences in localStorage
+Dark mode
+
+Version 2.0 ⭐⭐⭐⭐
+Export passwords
+Passphrase generator
+Exclude similar characters
+Exclude duplicate characters
+Custom symbols
+Animated strength meter
